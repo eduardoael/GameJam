@@ -21,7 +21,7 @@ public class AIMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (agent.remainingDistance < .5f)
+        if (agent.remainingDistance < .2f)
         {
             GoToNextWaypoint();
         }
@@ -36,15 +36,8 @@ public class AIMovement : MonoBehaviour
         
         //set new waypoint
         agent.destination = waypoints[nextWaypoint].position;
-       
+
         //find next waypoint           
-        if (nextWaypoint <= waypoints.Length)
-        {
-            nextWaypoint++;
-        }
-        else
-        {
-            nextWaypoint = 0;
-        }
+        nextWaypoint = (nextWaypoint + 1) % waypoints.Length;
     }
 }
