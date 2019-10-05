@@ -619,10 +619,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47e4a7ee4230e8d4f9ad51aa7c54c1d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  alertAudioFile: {fileID: 0}
+  state: 0
+  alertTime: 1
+  viewingDistance: 10
   waypoints:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  walkspeed: 0
 --- !u!114 &1912284403
 MonoBehaviour:
   m_ObjectHideFlags: 0
