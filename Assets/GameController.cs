@@ -1,13 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
     public AudioClip music;
     public AudioClip alerted;
-    public AudioClip collectClipboard;
 
     int clipboards = 0;
     public GameObject gameOverScreen;
@@ -29,7 +27,6 @@ public class GameController : MonoBehaviour
 
     public void ClipboardCollected()
     {
-        SoundManager.Instance.Play(collectClipboard);
         clipboards++;
     }
 
@@ -37,8 +34,6 @@ public class GameController : MonoBehaviour
     {
         //gameFinishedScreen.SetActive(true);
         Time.timeScale = 0;
-        Debug.Log("END. Clipboards collected:  " + clipboards);
-        SceneManager.LoadScene("");
-        
+        Debug.Log("END. Clipboards collected:  " + clipboards);    
     }
 }
