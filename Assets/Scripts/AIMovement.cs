@@ -14,9 +14,6 @@ public class AIMovement : MonoBehaviour
 
     public GameController gameController;
 
-    AudioSource audioSource;
-    public AudioClip alertAudioFile;
-
     NavMeshAgent agent;
     public State state;
 
@@ -38,9 +35,7 @@ public class AIMovement : MonoBehaviour
     Animator anim;
 
     void Start()
-    {
-        
-        audioSource = GetComponent<AudioSource>();
+    {        
         anim = GetComponent<Animator>();
         agent = GetComponent<NavMeshAgent>();
         //starting state of agent
@@ -88,8 +83,8 @@ public class AIMovement : MonoBehaviour
 
     void Alert()
     {
-        audioSource.PlayOneShot(alertAudioFile, 1f);
         print("alerted");
+        state = State.Wait;
         gameController.GameOver();
         //Wait on detection
         //state = State.Wait;
@@ -107,8 +102,6 @@ public class AIMovement : MonoBehaviour
         //    state = State.Patrol;
         //}
         //instant game over on detection
-
-
     }
 
 
