@@ -18070,11 +18070,6 @@ PrefabInstance:
       propertyPath: waypoints.Array.data[1]
       value: 
       objectReference: {fileID: 590729515}
-    - target: {fileID: 7691090268838328360, guid: d7c9c777e1b6b6f43b4d675af3de1063,
-        type: 3}
-      propertyPath: viewingDistance
-      value: 70
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d7c9c777e1b6b6f43b4d675af3de1063, type: 3}
 --- !u!1001 &1228881595
