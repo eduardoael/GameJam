@@ -701,7 +701,7 @@ GameObject:
   - component: {fileID: 7691090268838328361}
   m_Layer: 0
   m_Name: AIAgent
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -715,7 +715,7 @@ Transform:
   m_GameObject: {fileID: 7691090269087262238}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.9900774, y: -1.7314746e-17, z: 2.17}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 8, y: 8, z: 8}
   m_Children:
   - {fileID: 7691090269087726650}
   - {fileID: 7691090269087647048}
@@ -782,7 +782,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 1
+  m_Speed: 15
   m_Acceleration: 10
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -839,8 +839,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47e4a7ee4230e8d4f9ad51aa7c54c1d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  state: 0
+  alertTime: 5
+  viewingDistance: 50
   waypoints:
-  - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
 --- !u!114 &7691090268838328361
@@ -850,12 +852,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7691090269087262238}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: eadea4736cf0f4a42b850d7aafa8602b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  viewingDistance: 10
+  viewingDistance: 20
 --- !u!1 &7691090269087262352
 GameObject:
   m_ObjectHideFlags: 0

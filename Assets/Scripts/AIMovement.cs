@@ -25,10 +25,16 @@ public class AIMovement : MonoBehaviour
 
     public Transform[] waypoints;
     private int nextWaypoint = 0;
-     
+
+    //animations
+    [Header("Animation")]
+    public float walkspeed;
+    private float idlespeed = 0;
+    Animator anim;
+
     void Start()
     {
-        
+        anim = GetComponent<Animator>();
         agent = GetComponent<NavMeshAgent>();
         //starting state of agent
         state = State.Patrol;
@@ -55,6 +61,7 @@ public class AIMovement : MonoBehaviour
 
     void Patrol()
     {
+        anim.SetFloat("Forward", walkspeed);
         agent.isStopped = false;
         if (PlayerInSight()) 
         { 
@@ -68,6 +75,7 @@ public class AIMovement : MonoBehaviour
         print("alerted");
         state = State.Wait;
         agent.isStopped = true;
+        anim.SetFloat("Forward", idlespeed);
         yield return new WaitForSeconds(alertTime);
         print("Waited");
         //player still in sight?
@@ -81,8 +89,9 @@ public class AIMovement : MonoBehaviour
         }
         
     }
+    
 
-
+     
     private void CheckForWaypoint()
     {
         if (agent.remainingDistance < .4f)
