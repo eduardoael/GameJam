@@ -143,12 +143,8 @@ public class AIMovement : MonoBehaviour
             if (Physics.Raycast(rayOrigin, transform.TransformDirection(Vector3.forward + offset).normalized, out hit, viewingDistance))
             {
                 print("hit " + hit.collider.gameObject.name);
-                if (hit.collider.gameObject.tag != "Player")
-                {
-                    return false;
-                }
-                else
-                {
+                if (hit.collider.gameObject.tag == "Player")
+                { 
                     Debug.DrawRay(rayOrigin, transform.TransformDirection(Vector3.forward + offset) * viewingDistance, Color.green);
                     return true;
                 }

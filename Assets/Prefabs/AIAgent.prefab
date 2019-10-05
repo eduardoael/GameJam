@@ -842,7 +842,7 @@ MonoBehaviour:
   alertAudioFile: {fileID: 8300000, guid: 1089f4707a535a848a97370a3dbf226f, type: 3}
   state: 0
   alertTime: 5
-  viewingDistance: 50
+  viewingDistance: 70
   waypoints:
   - {fileID: 0}
   - {fileID: 0}
