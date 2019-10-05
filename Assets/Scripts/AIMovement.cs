@@ -12,6 +12,8 @@ public class AIMovement : MonoBehaviour
         Wait,
     }
 
+    public GameController gameController;
+
     AudioSource audioData;
     public AudioClip alertAudioFile;
 
@@ -37,6 +39,7 @@ public class AIMovement : MonoBehaviour
 
     void Start()
     {
+        gameController = GetComponent<GameController>();
         audioData = GetComponent<AudioSource>();
         anim = GetComponent<Animator>();
         agent = GetComponent<NavMeshAgent>();
@@ -60,6 +63,14 @@ public class AIMovement : MonoBehaviour
             default:
                 Debug.Log("Not in any valid State");
                 break;
+        }
+    }
+
+    private void OnTriggerEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        {
+            gameController.GameOver();
         }
     }
 
@@ -94,7 +105,7 @@ public class AIMovement : MonoBehaviour
         //    state = State.Patrol;
         //}
         //instant game over on detection
-        GameOver();
+        gameController.GameOver();
         yield return null;
     }
 
@@ -159,9 +170,5 @@ public class AIMovement : MonoBehaviour
 
     }
 
-    private void GameOver()
-    {
-        Debug.LogWarning("Game Over");
-        
-    }
+   
 }

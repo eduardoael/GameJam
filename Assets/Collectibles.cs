@@ -31,7 +31,7 @@ public class Collectibles : MonoBehaviour
         {
             collectiblesPrompt.gameObject.SetActive(false);
             Debug.Log("DESTROYED Clipboard");
-            Destroy(gameObject);
+            Destroy(this.gameObject);
         }
     }
 }
