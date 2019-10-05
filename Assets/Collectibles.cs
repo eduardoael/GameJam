@@ -27,8 +27,9 @@ public class Collectibles : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.T) && isCollectible)
+        if (Input.GetKeyDown(KeyCode.T) || Input.GetButtonDown("Collect") && isCollectible)
         {
+            collectiblesPrompt.gameObject.SetActive(false);
             Debug.Log("DESTROYED Clipboard");
             Destroy(gameObject);
         }
