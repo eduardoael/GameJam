@@ -8,7 +8,7 @@ public class AIMovement : MonoBehaviour
     NavMeshAgent agent;
     
     public Transform[] waypoints;
-    private int nextWaypoint;
+    private int nextWaypoint = 0;
     
     
     // Start is called before the first frame update
