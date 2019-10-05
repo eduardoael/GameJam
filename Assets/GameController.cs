@@ -11,7 +11,7 @@ public class GameController : MonoBehaviour
     private void Start()
     {
         gameOverScreen.SetActive(false);
-        gameFinishedScreen.SetActive(false);
+        
     }
 
     public void GameOver()
@@ -28,7 +28,8 @@ public class GameController : MonoBehaviour
 
     public void TerminalReached()
     {
-        gameFinishedScreen.SetActive(true);
+        //gameFinishedScreen.SetActive(true);
+        Time.timeScale = 0;
         Debug.Log("END. Clipboards collected:  " + clipboards);    
     }
 }
