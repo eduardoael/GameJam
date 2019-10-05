@@ -9,16 +9,18 @@ public class AILineOfSight : MonoBehaviour
     NavMeshAgent agent;
     LayerMask mask; 
     public float viewingDistance = 10;
+    AIMovement movement;
 
 
-    // Start is called before the first frame update
+   
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
-        mask = LayerMask.GetMask("Player"); //"Player" Layer
+        mask = LayerMask.GetMask("Player"); // Layer to rycast
+        movement = GetComponent<AIMovement>();
     }
 
-    // Update is called once per frame
+  
     void Update()
     {
         Vector3 rayOrigin = transform.position + (Vector3.up * 10f);
@@ -28,6 +30,7 @@ public class AILineOfSight : MonoBehaviour
         {
             Debug.DrawRay(rayOrigin, transform.TransformDirection(Vector3.forward) * hit.distance, Color.green);
             print("hit");
+            movement.state = AIMovement.State.Alert;
         }
         else 
         {
