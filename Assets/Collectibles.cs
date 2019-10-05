@@ -6,7 +6,7 @@ public class Collectibles : MonoBehaviour
 {
 
     public Canvas collectiblesPrompt;
-    private bool isCollectible;
+    public bool isCollectible;
 
     private void Start()
     {
@@ -27,7 +27,7 @@ public class Collectibles : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.T) || Input.GetButtonDown("Collect") && isCollectible)
+        if (Input.GetKeyDown(KeyCode.T) && isCollectible)
         {
             collectiblesPrompt.gameObject.SetActive(false);
             Debug.Log("DESTROYED Clipboard");

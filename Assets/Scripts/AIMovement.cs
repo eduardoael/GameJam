@@ -66,14 +66,15 @@ public class AIMovement : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        if (collision.gameObject.tag == "Player")
+        if (other.gameObject.tag == "Player")
         {
+            print("Collision");
             gameController.GameOver();
         }
     }
-
+   
     void Patrol()
     {
         anim.SetFloat("Forward", walkspeed);

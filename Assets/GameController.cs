@@ -8,6 +8,5 @@ public class GameController : MonoBehaviour
     public void GameOver()
     {
         Debug.LogWarning("Game Over");
-
     }
 }

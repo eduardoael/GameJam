@@ -3,15 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using System.Threading;
+using TMPro;
 
 public class Countdown : MonoBehaviour
 {
     public int timeLeft = 60;
-    public Text countdown;
+    public TMP_Text countdown;
+
+    public GameController gameController;
 
     // Start is called before the first frame update
     void Start()
     {
+        gameController = GetComponent<GameController>();
         StartCoroutine("LoseTime");
         Time.timeScale = 1;
     }
@@ -29,6 +33,7 @@ public class Countdown : MonoBehaviour
             yield return new WaitForSeconds(1);
             timeLeft--;
         }
+        gameController.GameOver();
     }
 
 }
