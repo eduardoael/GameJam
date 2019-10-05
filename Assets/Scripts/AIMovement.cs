@@ -21,7 +21,7 @@ public class AIMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (agent.remainingDistance < .2f)
+        if (agent.remainingDistance < .4f)
         {
             GoToNextWaypoint();
         }

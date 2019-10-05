@@ -21,7 +21,7 @@ public class AILineOfSight : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector3 rayOrigin = transform.position + (Vector3.up * 1.3f);
+        Vector3 rayOrigin = transform.position + (Vector3.up * 10f);
        
         RaycastHit hit;
         if (Physics.Raycast(rayOrigin, transform.TransformDirection(Vector3.forward), out hit, viewingDistance, mask))

@@ -13,8 +13,9 @@ GameObject:
   - component: {fileID: 4289481732987449179}
   - component: {fileID: 3319638272169344876}
   - component: {fileID: 208127276586265333}
+  - component: {fileID: 8530809905979033338}
   m_Layer: 0
-  m_Name: ComputerDesk_02_snaps001
+  m_Name: Computer Desk 02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3075,3 +3076,16 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 14
   m_Mesh: {fileID: 0}
+--- !u!65 &8530809905979033338
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4311025438657389155}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.9999999, y: 0.81249994, z: 0.90624994}
+  m_Center: {x: 0, y: 0.40624997, z: 0}
