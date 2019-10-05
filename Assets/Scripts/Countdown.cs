@@ -15,7 +15,6 @@ public class Countdown : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        gameController = GetComponent<GameController>();
         StartCoroutine("LoseTime");
         Time.timeScale = 1;
     }
@@ -32,8 +31,9 @@ public class Countdown : MonoBehaviour
         {
             yield return new WaitForSeconds(1);
             timeLeft--;
+            if (timeLeft <= 0) { gameController.GameOver(); }
         }
-        gameController.GameOver();
+       
     }
 
 }

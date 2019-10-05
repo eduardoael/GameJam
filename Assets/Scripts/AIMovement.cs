@@ -39,7 +39,7 @@ public class AIMovement : MonoBehaviour
 
     void Start()
     {
-        gameController = GetComponent<GameController>();
+        
         audioData = GetComponent<AudioSource>();
         anim = GetComponent<Animator>();
         agent = GetComponent<NavMeshAgent>();

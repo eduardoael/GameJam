@@ -5,7 +5,7 @@ using UnityEngine;
 public class Collectibles : MonoBehaviour
 {
 
-    public Canvas collectiblesPrompt;
+    public GameObject collectiblesPrompt;
     public bool isCollectible;
 
     private void Start()
