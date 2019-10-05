@@ -6,10 +6,12 @@ public class GameController : MonoBehaviour
 {
     int clipboards = 0;
     public GameObject gameOverScreen;
+    public GameObject gameFinishedScreen;
 
     private void Start()
     {
-        gameOverScreen.SetActive(true);
+        gameOverScreen.SetActive(false);
+        gameFinishedScreen.SetActive(false);
     }
 
     public void GameOver()
@@ -26,6 +28,7 @@ public class GameController : MonoBehaviour
 
     public void TerminalReached()
     {
+        gameFinishedScreen.SetActive(true);
         Debug.Log("END. Clipboards collected:  " + clipboards);    
     }
 }

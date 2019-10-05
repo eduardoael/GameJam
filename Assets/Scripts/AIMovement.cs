@@ -26,7 +26,7 @@ public class AIMovement : MonoBehaviour
     //rayast for line of sight
     LayerMask mask;
     public float viewingDistance = 10;
-    bool playerDetected = true;
+    //bool playerDetected = true;
 
     public Transform[] waypoints;
     private int nextWaypoint = 0;
@@ -34,7 +34,7 @@ public class AIMovement : MonoBehaviour
     //animations
     [Header("Animation")]
     public float walkspeed;
-    private float idlespeed = 0;
+    //private float idlespeed = 0;
     Animator anim;
 
     void Start()
