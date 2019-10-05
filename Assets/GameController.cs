@@ -38,7 +38,7 @@ public class GameController : MonoBehaviour
         //gameFinishedScreen.SetActive(true);
         Time.timeScale = 0;
         Debug.Log("END. Clipboards collected:  " + clipboards);
-        SceneManager.LoadScene("");
+        SceneManager.LoadScene("Outro");
         
     }
 }

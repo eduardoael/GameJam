@@ -16,14 +16,20 @@ public class Collectibles : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        collectiblesPrompt.gameObject.SetActive(true);
-        isCollectible = true;
+        if (other.gameObject.tag == "Player")
+        {
+            collectiblesPrompt.gameObject.SetActive(true);
+            isCollectible = true;
+        }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        collectiblesPrompt.gameObject.SetActive(false);
-        isCollectible = false;
+        if (other.gameObject.tag == "Player")
+        {
+            collectiblesPrompt.gameObject.SetActive(false);
+            isCollectible = false;
+        }
     }
 
     private void Update()
