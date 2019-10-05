@@ -78,21 +78,24 @@ public class AIMovement : MonoBehaviour
     {
         audioData.PlayOneShot(alertAudioFile);
         print("alerted");
-        state = State.Wait;
-        agent.isStopped = true;
-        anim.SetFloat("Forward", idlespeed);
-        yield return new WaitForSeconds(alertTime);
-        print("Waited");
-        //player still in sight?
-        if (PlayerInSight())
-        {
-            GameOver();
-        }
-        else
-        {
-            state = State.Patrol;
-        }
-
+        //Wait on detection
+        //state = State.Wait;
+        //agent.isStopped = true;
+        //anim.SetFloat("Forward", idlespeed);
+        //yield return new WaitForSeconds(alertTime);
+        //print("Waited");
+        ////player still in sight?
+        //if (PlayerInSight())
+        //{
+        //    GameOver();
+        //}
+        //else
+        //{
+        //    state = State.Patrol;
+        //}
+        //instant game over on detection
+        GameOver();
+        yield return null;
     }
 
 
@@ -142,7 +145,6 @@ public class AIMovement : MonoBehaviour
             Vector3 offset = new Vector3(x, 0, 0);
             if (Physics.Raycast(rayOrigin, transform.TransformDirection(Vector3.forward + offset).normalized, out hit, viewingDistance))
             {
-                print("hit " + hit.collider.gameObject.name);
                 if (hit.collider.gameObject.tag == "Player")
                 { 
                     Debug.DrawRay(rayOrigin, transform.TransformDirection(Vector3.forward + offset) * viewingDistance, Color.green);
@@ -159,6 +161,7 @@ public class AIMovement : MonoBehaviour
 
     private void GameOver()
     {
-        Debug.Log("Game Over");
+        Debug.LogWarning("Game Over");
+        
     }
 }
