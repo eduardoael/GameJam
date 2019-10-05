@@ -12,9 +12,12 @@ public class AIMovement : MonoBehaviour
         Wait,
     }
 
+    AudioSource audioData;
+    public AudioClip alertAudioFile;
+
     NavMeshAgent agent;
     public State state;
-    
+
     [Tooltip("How long is the AI-Agent alerted?")]
     public float alertTime = 1;
 
@@ -25,10 +28,17 @@ public class AIMovement : MonoBehaviour
 
     public Transform[] waypoints;
     private int nextWaypoint = 0;
-     
+
+    //animations
+    [Header("Animation")]
+    public float walkspeed;
+    private float idlespeed = 0;
+    Animator anim;
+
     void Start()
     {
-        
+        audioData = GetComponent<AudioSource>();
+        anim = GetComponent<Animator>();
         agent = GetComponent<NavMeshAgent>();
         //starting state of agent
         state = State.Patrol;
@@ -50,24 +60,27 @@ public class AIMovement : MonoBehaviour
             default:
                 Debug.Log("Not in any valid State");
                 break;
-        }  
+        }
     }
 
     void Patrol()
     {
+        anim.SetFloat("Forward", walkspeed);
         agent.isStopped = false;
-        if (PlayerInSight()) 
-        { 
-            state = State.Alert; 
+        if (PlayerInSight())
+        {
+            state = State.Alert;
         }
         CheckForWaypoint();
     }
 
     IEnumerator Alert()
     {
+        audioData.PlayOneShot(alertAudioFile);
         print("alerted");
         state = State.Wait;
         agent.isStopped = true;
+        anim.SetFloat("Forward", idlespeed);
         yield return new WaitForSeconds(alertTime);
         print("Waited");
         //player still in sight?
@@ -79,8 +92,9 @@ public class AIMovement : MonoBehaviour
         {
             state = State.Patrol;
         }
-        
+
     }
+
 
 
     private void CheckForWaypoint()
@@ -90,7 +104,7 @@ public class AIMovement : MonoBehaviour
             GoToNextWaypoint();
         }
     }
-  
+
     private void GoToNextWaypoint()
     {
         if (waypoints.Length == 0)
@@ -104,7 +118,7 @@ public class AIMovement : MonoBehaviour
 
         //find next waypoint   
         nextWaypoint = (nextWaypoint + 1) % waypoints.Length;
-        
+
     }
 
     private bool PlayerInSight()
@@ -112,24 +126,39 @@ public class AIMovement : MonoBehaviour
         Vector3 rayOrigin = transform.position + (Vector3.up * 10f);
 
         RaycastHit hit;
-        if (Physics.Raycast(rayOrigin, transform.TransformDirection(Vector3.forward), out hit, viewingDistance))
+      
+        float x = -1;
+        for (int i = 0; i < 10; i++)
         {
-            Debug.DrawRay(rayOrigin, transform.TransformDirection(Vector3.forward) * hit.distance, Color.green);
-            print("hit " + hit.collider.gameObject.name);
-            if (hit.collider.gameObject.tag != "Player")
+            x += 0.2f;
+            Vector3 offset = new Vector3(x, 0, 0);
+            Debug.DrawRay(rayOrigin, transform.TransformDirection(Vector3.forward + offset).normalized * viewingDistance, Color.yellow);
+        }
+
+        x = -1;
+        for (int i = 0; i < 10; i++)
+        {
+            x += 0.2f;
+            Vector3 offset = new Vector3(x, 0, 0);
+            if (Physics.Raycast(rayOrigin, transform.TransformDirection(Vector3.forward + offset).normalized, out hit, viewingDistance))
             {
-                return false;
-            }
-            else
-            {
-                return true;
+                print("hit " + hit.collider.gameObject.name);
+                if (hit.collider.gameObject.tag != "Player")
+                {
+                    return false;
+                }
+                else
+                {
+                    Debug.DrawRay(rayOrigin, transform.TransformDirection(Vector3.forward + offset) * viewingDistance, Color.green);
+                    return true;
+                }
             }
         }
-        else
-        {
-            Debug.DrawRay(rayOrigin, transform.TransformDirection(Vector3.forward) * viewingDistance, Color.yellow);
-            return false;
-        }
+        //Debug.DrawRay(rayOrigin, transform.TransformDirection(Vector3.forward) * viewingDistance, Color.yellow);
+        //Debug.DrawRay(rayOrigin, transform.TransformDirection(Vector3.forward + new Vector3(1, 0, 0)) * viewingDistance, Color.yellow);
+        //Debug.DrawRay(rayOrigin, transform.TransformDirection(Vector3.forward + new Vector3(-1, 0, 0)) * viewingDistance, Color.yellow);
+        return false;
+
     }
 
     private void GameOver()
