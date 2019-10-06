@@ -795,7 +795,7 @@ GameObject:
   - component: {fileID: 7691090269093489456}
   - component: {fileID: 7691090268838328360}
   - component: {fileID: 8844181092764217917}
-  - component: {fileID: 8261320797547182409}
+  - component: {fileID: 4081189177717519897}
   m_Layer: 0
   m_Name: AIAgent
   m_TagString: Untagged
@@ -1041,19 +1041,20 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!135 &8261320797547182409
-SphereCollider:
+--- !u!136 &4081189177717519897
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7691090269087262238}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.98
-  m_Center: {x: 0, y: 0.68, z: 0}
+  m_Radius: 0.5
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.78, z: 0}
 --- !u!1 &7691090269087262352
 GameObject:
   m_ObjectHideFlags: 0

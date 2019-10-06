@@ -35,6 +35,9 @@ public class AIMovement : MonoBehaviour
     //private float idlespeed = 0;
     Animator anim;
 
+    //for debug purposes to disable detection of player
+    bool blind = false;
+
     void Start()
     {        
         anim = GetComponent<Animator>();
@@ -60,6 +63,8 @@ public class AIMovement : MonoBehaviour
                 Debug.Log("Not in any valid State");
                 break;
         }
+
+        if (Input.GetKeyDown(KeyCode.F1)) { blind = true; print("blindedAI"); }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -84,6 +89,7 @@ public class AIMovement : MonoBehaviour
 
     void Alert()
     {
+        if (blind) { return; }
         print("alerted");
         state = State.Wait;
         SoundManager.Instance.Play(alerted);
