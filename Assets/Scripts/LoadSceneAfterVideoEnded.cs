@@ -24,7 +24,7 @@ public class LoadSceneAfterVideoEnded : MonoBehaviour
             {
                 SceneManager.LoadScene(2);
             }
-            else if (SceneManager.GetActiveScene().name == "Outro")
+            else if (SceneManager.GetActiveScene().name.Contains("Outro"))
             {
                 SceneManager.LoadScene(0);
             }
