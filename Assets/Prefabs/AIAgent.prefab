@@ -93,8 +93,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AmountOfRaycasts: 1024
   DrawDebugLines: 0
-  Range: 6
-  FieldOfView: 90
+  Range: 6.7
+  FieldOfView: 58
   DegreeOffset: 90
 --- !u!1 &7691090269087236280
 GameObject:
