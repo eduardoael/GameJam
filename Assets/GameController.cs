@@ -22,6 +22,7 @@ public class GameController : MonoBehaviour
     public void GameOver()
     {
         SoundManager.Instance.Play(alerted);
+        SoundManager.Instance.StopMusic();
         gameOverScreen.SetActive(true);
         Time.timeScale = 0;
         Debug.LogWarning("Game Over");
@@ -38,7 +39,7 @@ public class GameController : MonoBehaviour
         //gameFinishedScreen.SetActive(true);
         Time.timeScale = 0;
         Debug.Log("END. Clipboards collected:  " + clipboards);
-        SceneManager.LoadScene("Outro");
+        SceneManager.LoadScene(4);
         
     }
 }
