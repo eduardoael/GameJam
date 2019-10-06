@@ -16,7 +16,7 @@ public class Countdown : MonoBehaviour
     void Start()
     {
         StartCoroutine("LoseTime");
-        Time.timeScale = 1;
+        //Time.timeScale = 1;
     }
 
     // Update is called once per frame

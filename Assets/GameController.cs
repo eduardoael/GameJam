@@ -16,11 +16,16 @@ public class GameController : MonoBehaviour
     public GameObject clipboard1;
     public GameObject clipboard2;
     public GameObject clipboard3;
+    public GameObject instructions;
+    bool instructionsActive;
 
     bool isReadingClipboard = false;
 
     private void Start()
     {
+        instructions.SetActive(true);
+        instructionsActive = true;
+        Time.timeScale = 0;
         gameOverScreen.SetActive(false);
         SoundManager.Instance.PlayMusic(music);
         clipboard1.SetActive(false);
@@ -67,6 +72,18 @@ public class GameController : MonoBehaviour
 
     private void Update()
     {
+        if (Input.GetKeyDown(KeyCode.W) && instructionsActive)
+        {
+            instructions.SetActive(false);
+            Time.timeScale = 1f;
+        }
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            SoundManager.Instance.StopMusic();
+            SceneManager.LoadScene(0);
+        }
+
         if (Input.GetKeyDown(KeyCode.Backspace) && isReadingClipboard)
         {
             Time.timeScale = 1;
