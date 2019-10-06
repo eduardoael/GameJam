@@ -13,6 +13,7 @@ public class AIMovement : MonoBehaviour
     }
 
     public GameController gameController;
+    public AudioClip alerted;
 
     NavMeshAgent agent;
     public State state;
@@ -85,6 +86,7 @@ public class AIMovement : MonoBehaviour
     {
         print("alerted");
         state = State.Wait;
+        SoundManager.Instance.Play(alerted);
         gameController.GameOver();
         //Wait on detection
         //state = State.Wait;

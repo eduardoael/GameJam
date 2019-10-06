@@ -31,7 +31,6 @@ public class GameController : MonoBehaviour
 
     public void GameOver()
     {
-        SoundManager.Instance.Play(alerted);
         SoundManager.Instance.StopMusic();
         gameOverScreen.SetActive(true);
         Time.timeScale = 0;
@@ -92,9 +91,8 @@ public class GameController : MonoBehaviour
     public void TerminalReached()
     {
         //gameFinishedScreen.SetActive(true);
-        Time.timeScale = 0;
         Debug.Log("END. Clipboards collected:  " + clipboards);
-        SceneManager.LoadScene(4);
-        
+        SoundManager.Instance.StopMusic();
+        SceneManager.LoadScene(3);
     }
 }
