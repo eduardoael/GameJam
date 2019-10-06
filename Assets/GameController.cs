@@ -93,6 +93,20 @@ public class GameController : MonoBehaviour
         //gameFinishedScreen.SetActive(true);
         Debug.Log("END. Clipboards collected:  " + clipboards);
         SoundManager.Instance.StopMusic();
-        SceneManager.LoadScene(3);
+        switch (clipboards)
+        {
+            case 1:
+                SceneManager.LoadScene(3);
+                break;
+            case 2:
+                SceneManager.LoadScene(4);
+                break;
+            case 3:
+                SceneManager.LoadScene(5);
+                break;
+            default:
+                break;
+        }
+        
     }
 }
