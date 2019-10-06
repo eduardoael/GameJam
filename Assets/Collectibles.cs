@@ -34,7 +34,7 @@ public class Collectibles : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.T) || Input.GetButtonDown("Fire3") && isCollectible)
+        if (Input.GetKeyDown(KeyCode.T) && isCollectible)
         {
             gameController.ClipboardCollected();
             collectiblesPrompt.gameObject.SetActive(false);
