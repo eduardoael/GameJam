@@ -45,13 +45,13 @@ public class GameController : MonoBehaviour
     public void ClipboardCollected()
     {
         clipboards++;
-        StartCoroutine(ShowClipboardUI());
+        ShowClipboardUI();
     }
 
-    IEnumerator ShowClipboardUI()
+    public void ShowClipboardUI()
     {
         SoundManager.Instance.Play(collectClipboard);
-        yield return new WaitForSeconds(1f);
+        //yield return new WaitForSeconds(1f);
         Time.timeScale = 0;
         isReadingClipboard = true;
         switch (clipboards)
@@ -112,6 +112,9 @@ public class GameController : MonoBehaviour
         SoundManager.Instance.StopMusic();
         switch (clipboards)
         {
+            case 0:
+                SceneManager.LoadScene(3);
+                break;
             case 1:
                 SceneManager.LoadScene(3);
                 break;
