@@ -144,18 +144,18 @@ public class AIMovement : MonoBehaviour
 
         RaycastHit hit;
       
-        float x = -1;
+        float x = -0.5f;
         for (int i = 0; i < 10; i++)
         {
-            x += 0.2f;
+            x += 0.1f;
             Vector3 offset = new Vector3(x, 0, 0);
             Debug.DrawRay(rayOrigin, transform.TransformDirection(Vector3.forward + offset).normalized * viewingDistance, Color.yellow);
         }
 
-        x = -1;
+        x = -0.5f;
         for (int i = 0; i < 10; i++)
         {
-            x += 0.2f;
+            x += 0.1f;
             Vector3 offset = new Vector3(x, 0, 0);
             if (Physics.Raycast(rayOrigin, transform.TransformDirection(Vector3.forward + offset).normalized, out hit, viewingDistance))
             {
