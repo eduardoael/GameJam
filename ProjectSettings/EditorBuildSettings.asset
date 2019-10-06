@@ -15,6 +15,12 @@ EditorBuildSettings:
     path: Assets/Scenes/Main Scene.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   - enabled: 1
-    path: Assets/Scenes/Outro.unity
+    path: Assets/Scenes/Outro 0-1 CB.unity
     guid: 1125fe8f56e2f8f40b6256b7abe652aa
+  - enabled: 1
+    path: Assets/Scenes/Outro 2 CB.unity
+    guid: cc809402542a40346b2676ffd1549fc5
+  - enabled: 1
+    path: Assets/Scenes/Outro 3 CB.unity
+    guid: d933c0506a480f64c956b632dc6ef355
   m_configObjects: {}
