@@ -8,6 +8,8 @@ public class LevelFinished : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        gameController.TerminalReached();
+        if (other.gameObject.tag == "Player")
+            print("Level Finished!");
+            gameController.TerminalReached();
     }
 }
