@@ -15,4 +15,20 @@ public class LoadSceneAfterVideoEnded : MonoBehaviour
     {
         SceneManager.LoadScene(2);
     }
+
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (SceneManager.GetActiveScene().name == "Intro")
+            {
+                SceneManager.LoadScene(2);
+            }
+            else if (SceneManager.GetActiveScene().name == "Outro")
+            {
+                SceneManager.LoadScene(0);
+            }
+        }
+    }
+
 }
